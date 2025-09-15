@@ -20,43 +20,43 @@ FoamFile
     {
         type            symmetryPlane;
         inGroups        List<word> 1(symmetryPlane);
-        nFaces          143;
-        startFace       25507;
+        nFaces          412;
+        startFace       147728;
     }
     symmetryY
     {
         type            symmetryPlane;
         inGroups        List<word> 1(symmetryPlane);
-        nFaces          143;
-        startFace       25650;
+        nFaces          412;
+        startFace       148140;
     }
     front
     {
         type            empty;
         inGroups        List<word> 1(empty);
-        nFaces          12870;
-        startFace       25793;
+        nFaces          74160;
+        startFace       148552;
     }
     back
     {
         type            empty;
         inGroups        List<word> 1(empty);
-        nFaces          12870;
-        startFace       38663;
+        nFaces          74160;
+        startFace       222712;
     }
     innerWall
     {
         type            wall;
         inGroups        List<word> 1(wall);
-        nFaces          90;
-        startFace       51533;
+        nFaces          180;
+        startFace       296872;
     }
     outerWall
     {
         type            wall;
         inGroups        List<word> 1(wall);
-        nFaces          90;
-        startFace       51623;
+        nFaces          180;
+        startFace       297052;
     }
 )
 
