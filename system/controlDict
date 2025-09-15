@@ -23,11 +23,11 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         5.0e-6;
+endTime         1.0e-7;
 
 writeControl    adjustableRunTime;
 
-writeInterval   1.0e-7;
+writeInterval   2.5e-7;
 
 writeFormat     binary;
 
