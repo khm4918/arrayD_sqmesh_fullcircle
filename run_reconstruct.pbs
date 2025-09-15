@@ -1,6 +1,6 @@
 #!/bin/sh
-#PBS -l walltime=18:00:00
-#PBS -l select=1:ncpus=128:mpiprocs=128:mem=128gb
+#PBS -l walltime=7:59:00
+#PBS -l select=1:ncpus=1:mpiprocs=1:mem=10gb
 #PBS -j oe
 
 # Change to the directory the job was submitted from
@@ -35,14 +35,8 @@ echo $WM_MPLIB
 
 paraFoam -builtin -touch
 
-# Create mesh
-runApplication blockMesh
+# Reconstruct case
+reconstructPar
 
-# -- Add internal patch
-runApplication addEmptyPatch internalPatch internal -overwrite
-
-# -- Decompose the case
-runApplication decomposePar
-
-# -- run the calc
-runParallel $(getApplication)
+# Delete all processor files
+rm -r processor*
