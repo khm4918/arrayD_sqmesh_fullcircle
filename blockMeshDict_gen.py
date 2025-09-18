@@ -18,9 +18,9 @@ showfig = True
 # Parameters
 r0 = 0.5        # starting radius (mm)
 r_max = 18     # max radius (mm)
-theta_deg = 90  # wedge angle in degrees
+theta_deg = 360  # wedge angle in degrees
 n_radial = 3000  # radial cells
-n_theta = 180    # angular divisions
+n_theta = 720    # angular divisions
 n_axial = 1     # axial divisions
 z_min = 0.0
 z_max = 1.0
@@ -63,8 +63,8 @@ if showfig == True:
     y = np.array(y)
     
     plt.plot(x,y,'x')
-    plt.xlim(-1, 20)
-    plt.ylim(-1, 20)
+    plt.xlim(-20, 20)
+    plt.ylim(-20, 20)
     plt.show()
 
 # Index helper

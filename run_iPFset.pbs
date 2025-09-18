@@ -1,0 +1,24 @@
+#!/bin/sh
+#PBS -l walltime=7:59:00
+#PBS -l select=1:ncpus=1:mpiprocs=1:mem=10gb
+#PBS -j oe
+
+# Change to the directory the job was submitted from
+cd $PBS_O_WORKDIR
+
+# Load required modules
+module purge
+module load mpi/intel-2018     # Keep your specified MPI module
+module load openfoam/9.0       # Make sure this loads the correct OpenFOAM version (e.g., v2206)
+
+# Source OpenFOAM environment
+source $FOAM_ETC/bashrc
+
+# Source blastFoam environment
+source $HOME/OpenFOAM/blastfoam/etc/bashrc
+
+# Ensure INTELMPI is used rather than a dummy
+export WM_MPLB=INTELMPI
+
+# Run iPF script
+./iPFrun
