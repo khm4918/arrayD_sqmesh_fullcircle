@@ -35,8 +35,8 @@ echo $WM_MPLIB
 
 paraFoam -builtin -touch
 
-# Create mesh
-runApplication blockMesh
+# Create mesh and set fields
+./iPFrun
 
 # -- Add internal patch
 runApplication addEmptyPatch internalPatch internal -overwrite
