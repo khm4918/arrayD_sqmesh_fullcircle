@@ -19,7 +19,7 @@ cp -r system $IPFOAM_DIR/system
 # remove old createFields file and replace with case template
 cd $IPFOAM_DIR
 rm createFields.H
-cp History/Experimental/cyl_cav_rmi/main/arrayD_polycav_sinusoid16.H createFields.H
+cp History/Experimental/cyl_cav_rmi/main/arrayD_nocav_defect16.H createFields.H
 
 # open iPF and generate fields
 cd $IPFOAM_DIR
