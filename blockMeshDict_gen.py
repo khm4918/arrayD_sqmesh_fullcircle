@@ -13,10 +13,10 @@ params = {
 plt.rcParams.update(params)
 
 #Plot figure of vertices
-showfig = True
+showfig = False
 
 # Parameters
-r0 = 0.5        # starting radius (mm)
+r0 = 0.1       # starting radius (mm)
 r_max = 18     # max radius (mm)
 theta_deg = 360  # wedge angle in degrees
 n_radial = 3000  # radial cells
@@ -73,6 +73,8 @@ def idx(z, t, r):
 
 # Write blockMeshDict
 os.makedirs("system", exist_ok=True)
+cell_count = 0  # counter
+
 with open("system/blockMeshDict", "w") as f:
     f.write("FoamFile\n{\n    version 2.0;\n    format ascii;\n    class dictionary;\n    object blockMeshDict;\n}\n\n")
     f.write("convertToMeters 0.001;\n\n")
@@ -97,6 +99,8 @@ with open("system/blockMeshDict", "w") as f:
             # ✅ Corrected vertex order to prevent inside-out error
             f.write(f"    hex ({v0} {v3} {v2} {v1} {v4} {v7} {v6} {v5}) "
                     f"({1} {1} {n_axial}) simpleGrading (1 1 1)\n")
+            cell_count += 1  # count each block
+            
     f.write(");\n\n")
 
     f.write("edges\n(\n);\n\n")
@@ -169,3 +173,4 @@ with open("system/blockMeshDict", "w") as f:
     f.write("mergePatchPairs\n(\n);\n")
 
 print("✅ blockMeshDict written to system/blockMeshDict")
+print(f"📦 Number of cells generated: {cell_count * n_axial:,}")
