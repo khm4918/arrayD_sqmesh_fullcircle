@@ -9,7 +9,7 @@ blockMesh
 # delete constant, system and 0 folders from iPF
 cd $IPFOAM_DIR
 rm -r constant system 0
-cp -r base_fields_sqmesh 0
+cp -r base_fields_sqmesh360 0
 
 # copy constant and system folders to iPF
 cd $SCRIPT_DIR
